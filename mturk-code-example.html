@@ -1,0 +1,256 @@
+<script type='text/javascript'>
+  window.onload = function() {
+  document.getElementById('submitButton').setAttribute('onclick', 'return validateForm()');     
+  document.getElementById("submitButton").className = "flatButtonRight";
+  document.getElementById("submitButton").disabled = true;
+}
+</script>
+<link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.1/themes/redmond/jquery-ui.css" rel="stylesheet" />
+<p>
+<style type="text/css">td { line-height: 140%;}
+  
+	*{
+		font-family:Arial;
+		font-size: large;
+	}
+  
+	div {
+		line-height: 140%;
+	}
+
+    .SliderLabel {
+        float: left;
+        font-size:20px;
+        width:100px;
+        font-family:Arial
+    }
+ 
+	.ui-slider .ui-slider-handle {
+		height: 1.5em;
+		width: 0.9em;
+	}
+
+    #slider .tick {  position: absolute; height: 100%; font-size:0px; line-height: 8px; top:-1px; }
+	
+	.flatButton {
+		display:inline-block;
+		cursor:pointer;
+		font-family:Arial;
+		font-size:17px;
+		font-weight:bold;
+		padding:14px 41px;
+		text-decoration:none;
+	}
+	
+	.flatButtonRight {
+		display:inline-block;
+		cursor:pointer;
+		font-family:Arial;
+		font-size:17px;
+		font-weight:bold;
+		padding:14px 41px;
+		text-decoration:none;
+		float: right;
+	}
+</style>
+</p>
+<script type='text/javascript' src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js'> </script><script  type='text/javascript' src='https://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.1/jquery-ui.min.js'>  </script><script type='text/javascript' >
+ 
+    var selectedValue = 0;
+
+    function save(){
+        alert(selectedValue);
+    }
+
+    $(function () {
+
+		$('#amount').val(selectedValue);
+        
+		var slider = $("#slider").slider({
+ 
+            orientation: "horizontal",
+            min: 0,
+            max: 100,
+            value: 0,
+                
+			slide: function (event, ui) {
+                $('#amount').val(ui.value);
+                selectedValue = ui.value
+			}
+        });
+
+    $('<div class="tick ui-widget-content" style="left:200px;"></div>').appendTo(slider);
+		$('<div class="tick ui-widget-content" style="left:400px;"></div>').appendTo(slider);  
+		$('<div class="tick ui-widget-content" style="left:600px;"></div>').appendTo(slider);
+		slider.find(".tick:first").css("border-left", "none");
+		slider.find(".ui-slider-handle").css("opacity", 0.8);
+		slider.find(".ui-slider-handle").removeClass("ui-corner-all");
+		slider.removeClass("ui-corner-all");
+    });
+</script>
+
+<div class="highlight-box">
+<table border="0" bordercolor="red" id="main_table" width="837">
+	<tbody>
+	</tbody>
+</table>
+</div>
+
+<table border="0" bordercolor="black">
+	<tbody>
+		<tr>
+			<td align="center">
+			<table border="0" bordercolor="green" cellpadding="15" cellspacing="0" id="other_table" width="100%">
+				<tbody>
+					<tr>
+						<td id="done">
+						<p>This HIT consists of 100 assessments of English. You have completed 0.</p>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+						<p>Read the text below. How much do you agree with the following statement:</p>
+						</td>
+					</tr>
+					<tr>
+						<td align="center" id="rate">
+						<p><b>The black text adequately expresses the meaning of the gray text.</b></p>
+						</td>
+					</tr>
+					<tr>
+						<td align="center" width="100%">
+						<table>
+							<tbody>
+								<tr>
+									<td>
+									<table border="1" bordercolor="lightpink" cellpadding="20" cellspacing="0">
+										<tbody>
+											<tr>
+												<td>
+												<table>
+													<tbody>
+														<tr>
+															<td align="center" id="question_cell" width="100%"><img alt="" border="0" id="ref_pic" src="" /></td>
+														</tr>
+														<tr>
+															<td align="center" width="100%"><img alt="" border="0" id="question_pic" src="" /></td>
+														</tr>
+													</tbody>
+												</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<table border="0" bordercolor="blue" cellpadding="10" cellspacing="0" id="slider_table" width="100%">
+							<tbody>
+								<tr>
+									<td colspan="2">
+									<table align="center">
+										<tbody>
+											<tr id="rSlider">
+												<td align="center" width="100">0 %</td>
+												<td>
+												<div id="slider" style="width: 800px; height: 20px; text-align: center; float: left;">&nbsp;</div>
+												</td>
+												<td align="center" width="100">100 %</td>
+											</tr>
+											<tr>
+												<td>&nbsp;</td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+								<tr>
+									<td>
+									<table border="0" bordercolor="green" width="100%">
+										<tbody>
+											<tr>
+												<td align="right" id="next_button"><input class="flatButton" onclick="nextQuestion()" type="button" value="NEXT" /></td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p><input id="amount" type="hidden" /></p>
+
+			<p><input id="final_answer" name="Q1" type="hidden" /></p>
+			<script type="text/javascript" language="javascript">
+
+var rids = [${rid_0}, ${rid_1}, ${rid_2}, ${rid_3}, ${rid_4}, ${rid_5}, ${rid_6}, ${rid_7}, ${rid_8}, ${rid_9}, ${rid_10}, ${rid_11}, ${rid_12}, ${rid_13}, ${rid_14}, ${rid_15}, ${rid_16}, ${rid_17}, ${rid_18}, ${rid_19}, ${rid_20}, ${rid_21}, ${rid_22}, ${rid_23}, ${rid_24}, ${rid_25}, ${rid_26}, ${rid_27}, ${rid_28}, ${rid_29}, ${rid_30}, ${rid_31}, ${rid_32}, ${rid_33}, ${rid_34}, ${rid_35}, ${rid_36}, ${rid_37}, ${rid_38}, ${rid_39}, ${rid_40}, ${rid_41}, ${rid_42}, ${rid_43}, ${rid_44}, ${rid_45}, ${rid_46}, ${rid_47}, ${rid_48}, ${rid_49}, ${rid_50}, ${rid_51}, ${rid_52}, ${rid_53}, ${rid_54}, ${rid_55}, ${rid_56}, ${rid_57}, ${rid_58}, ${rid_59}, ${rid_60}, ${rid_61}, ${rid_62}, ${rid_63}, ${rid_64}, ${rid_65}, ${rid_66}, ${rid_67}, ${rid_68}, ${rid_69}, ${rid_70}, ${rid_71}, ${rid_72}, ${rid_73}, ${rid_74}, ${rid_75}, ${rid_76}, ${rid_77}, ${rid_78}, ${rid_79}, ${rid_80}, ${rid_81}, ${rid_82}, ${rid_83}, ${rid_84}, ${rid_85}, ${rid_86}, ${rid_87}, ${rid_88}, ${rid_89}, ${rid_90}, ${rid_91}, ${rid_92}, ${rid_93}, ${rid_94}, ${rid_95}, ${rid_96}, ${rid_97}, ${rid_98}, ${rid_99}];
+
+var sids = [${sid_0}, ${sid_1}, ${sid_2}, ${sid_3}, ${sid_4}, ${sid_5}, ${sid_6}, ${sid_7}, ${sid_8}, ${sid_9}, ${sid_10}, ${sid_11}, ${sid_12}, ${sid_13}, ${sid_14}, ${sid_15}, ${sid_16}, ${sid_17}, ${sid_18}, ${sid_19}, ${sid_20}, ${sid_21}, ${sid_22}, ${sid_23}, ${sid_24}, ${sid_25}, ${sid_26}, ${sid_27}, ${sid_28}, ${sid_29}, ${sid_30}, ${sid_31}, ${sid_32}, ${sid_33}, ${sid_34}, ${sid_35}, ${sid_36}, ${sid_37}, ${sid_38}, ${sid_39}, ${sid_40}, ${sid_41}, ${sid_42}, ${sid_43}, ${sid_44}, ${sid_45}, ${sid_46}, ${sid_47}, ${sid_48}, ${sid_49}, ${sid_50}, ${sid_51}, ${sid_52}, ${sid_53}, ${sid_54}, ${sid_55}, ${sid_56}, ${sid_57}, ${sid_58}, ${sid_59}, ${sid_60}, ${sid_61}, ${sid_62}, ${sid_63}, ${sid_64}, ${sid_65}, ${sid_66}, ${sid_67}, ${sid_68}, ${sid_69}, ${sid_70}, ${sid_71}, ${sid_72}, ${sid_73}, ${sid_74}, ${sid_75}, ${sid_76}, ${sid_77}, ${sid_78}, ${sid_79}, ${sid_80}, ${sid_81}, ${sid_82}, ${sid_83}, ${sid_84}, ${sid_85}, ${sid_86}, ${sid_87}, ${sid_88}, ${sid_89}, ${sid_90}, ${sid_91}, ${sid_92}, ${sid_93}, ${sid_94}, ${sid_95}, ${sid_96}, ${sid_97}, ${sid_98}, ${sid_99}];
+
+var qid = 0;
+var ans = "";
+var rid = rids[qid]+"";
+var sid = sids[qid];
+
+var url = "http://computing.dcu.ie/~ygraham";
+var ref_img = url+"/mturk/img/wmt/ref/en/"+sid+".png";
+var img = url+"/mturk/img/wmt/lB/"+rid.substring(0,4)+"/"+rid+".png";
+
+document.getElementById("question_pic").src = img;
+document.getElementById("ref_pic").src = ref_img;  
+document.getElementById('done').innerHTML = "This HIT consists of 100 English assessments. You have completed "+qid+".";
+  
+function nextQuestion(){
+
+  if( qid == 0 ){
+    ans = qid+"_"+rid+"_"+document.getElementById("amount").value;
+  }else{
+    ans += "|"+qid+"_"+rid+"_"+document.getElementById("amount").value;
+  }
+
+  // move to next question
+  qid++;
+  rid = rids[qid]+"";
+  sid = sids[qid];
+
+  var ref_img = url+"/mturk/img/wmt/ref/en/"+sid+".png";  
+  var img = url+"/mturk/img/wmt/lB/"+rid.substring(0,4)+"/"+rid+".png";
+  
+  document.getElementById('done').innerHTML = "<span style='font-family: Arial;'>This HIT consists of 100 English assessments. You have completed "+qid+".</span>";
+  document.getElementById("question_pic").src=img;
+  document.getElementById("ref_pic").src=ref_img;
+  
+  $("#slider").slider('value', 0);
+
+  if( qid == rids.length ){
+  
+    document.getElementById('final_answer').value = ""+ans;
+	  document.getElementById("main_table").innerHTML = "<tbody><div><p>You have completed Has all 100 assessments.</p> <p> Please press the <b>\"Submit\"</b> button below to submit the HIT. Thank you for your participation.</p> <p>You can leave feedback here if you wish:</p></div><textarea name=\"comments\" cols=110 rows=10></textarea></tbody>" 
+    document.getElementById('other_table').innerHTML = "";
+    document.getElementById('slider_table').innerHTML = "";
+	  document.getElementById("submitButton").disabled = false;
+  }
+}
+
+function validateForm(){
+  if( qid == 100 ){
+     return true;
+  }else{
+     alert("Press \"Next\"");
+     return false;
+  }
+}
+  
+</script></td>
+		</tr>
+	</tbody>
+</table>
