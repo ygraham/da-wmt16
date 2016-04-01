@@ -2,7 +2,7 @@
   window.onload = function() {
   document.getElementById('submitButton').setAttribute('onclick', 'return validateForm()');     
   document.getElementById("submitButton").className = "flatButtonRight";
-  document.getElementById("submitButton").disabled = true;
+  
 }
 </script>
 <link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.1/themes/redmond/jquery-ui.css" rel="stylesheet" />
@@ -234,10 +234,9 @@ function nextQuestion(){
   if( qid == rids.length ){
   
     document.getElementById('final_answer').value = ""+ans;
-	  document.getElementById("main_table").innerHTML = "<tbody><div><p>You have completed Has all 100 assessments.</p> <p> Please press the <b>\"Submit\"</b> button below to submit the HIT. Thank you for your participation.</p> <p>You can leave feedback here if you wish:</p></div><textarea name=\"comments\" cols=110 rows=10></textarea></tbody>" 
+    document.getElementById("main_table").innerHTML = "<tbody><div><p>You have completed Has all 100 assessments.</p> <p> Please press the <b>\"Submit\"</b> button below to submit the HIT. Thank you for your participation.</p> <p>You can leave feedback here if you wish:</p></div><textarea name=\"comments\" cols=110 rows=10></textarea></tbody>" 
     document.getElementById('other_table').innerHTML = "";
     document.getElementById('slider_table').innerHTML = "";
-	  document.getElementById("submitButton").disabled = false;
   }
 }
 
