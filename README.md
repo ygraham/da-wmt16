@@ -4,10 +4,10 @@
 
 The repo includes Example Input for Appraise:
 
-1. Mturk csv file (YG will generate these for the actual wmt-16 data & pass to CF)
-2. Image files (YG will also generate these for wmt-16 data)
-3. Mturk code that produces (4) 
-4. MTurk batch file (YG will need this back from Appraise)
+1. Mturk csv file [mturk-csv-example.csv] [YG will generate these for the actual wmt-16 data & pass to CF]
+2. Image files [wmt.tar.gz] [YG will also generate these for wmt-16 data]
+3. Mturk code [mturk-code-example.html] that produces (4) when turkers complete hits
+4. MTurk batch file [Batch_2336208_batch_results.csv][YG will need this back from Appraise]
 
 (4) is basically the original csv file (1) above with the two added fields:
 * Answer.Q1 --> included in the Mturk code here: \<input id="final_answer" name="Q1" type="hidden" /\>
