@@ -15,7 +15,9 @@ The repo includes Example Input for Appraise:
 
 
 Answer.Q1 is a large string containing some information and (importantly) scores given to the 100 translations: 
-* Index in HIT
-* Random id number (correpsonding to name the image file)
-* 0-100 score it was given by the worker.
+* sysid: MT system name (eg uedin)
+* sid: sentence id in test set (eg 1-3000)
+* tst: item type (system, bad_ref, ref, or repeat)
+* index: position in hit it was judged at (0-99)
+* document.getElementById("amount").value: score given by worker
 
